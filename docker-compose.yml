@@ -22,7 +22,6 @@ x-base_app: &base_app
     - HISTFILE=/app/log/.bash_history
     - MALLOC_ARENA_MAX=2
   depends_on:
-    - rabbitmq
     - postgres_alice_in_stars_api
   image: alice_in_stars_api
   tmpfs:
@@ -51,17 +50,11 @@ services:
       - "${POSTGRES_PORT}:5432"
     env_file:
       - .env
-  
-  hutch:
-    <<: *base_app
-    image: alice_in_stars_api:latest
-    command: bundle exec hutch --verbose
 
 volumes:
   postgres:
   bundle:
   rails_cache:
-  rabbitmq_data:
 
 networks:
   default:
