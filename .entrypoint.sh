@@ -6,4 +6,4 @@ bundle clean --force
 # Check whether or not gems are installed, and install it case not installed.
 bundle check || bundle install --jobs=$(nproc) --retry=5
 
-./app/libs/scripts/wait-for-it.sh postgres_account_api:5432 -- "$@"
+./app/libs/scripts/wait-for-it.sh postgres_alice_in_stars_api:5432 -- "$@"
