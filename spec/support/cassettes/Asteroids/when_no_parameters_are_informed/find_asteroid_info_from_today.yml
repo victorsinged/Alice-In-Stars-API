@@ -1,0 +1,64 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.nasa.gov/neo/rest/v1/feed?api_key=vPFnK92YkXbPgAkuiEGylPKXNMEbSPrYren158uD&end_date=2021-02-14&start_date=2021-02-14%20%20%20%20%20%20%20
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.2 (linux-gnu x86_64) ruby/2.6.5p114
+      Host:
+      - api.nasa.gov
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sun, 14 Feb 2021 20:07:39 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      X-Ratelimit-Limit:
+      - '1000'
+      X-Ratelimit-Remaining:
+      - '998'
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - POST,GET
+      Access-Control-Max-Age:
+      - '3600'
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Via:
+      - 1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
+      Age:
+      - '1'
+      X-Cache:
+      - MISS
+      Strict-Transport-Security:
+      - max-age=31536000; preload
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+  recorded_at: Sun, 14 Feb 2021 20:07:39 GMT
+recorded_with: VCR 6.0.0
