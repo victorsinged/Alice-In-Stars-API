@@ -1,17 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe "Asteroids", type: :request do
-  context 'when no parameters are informed' do
+  context 'when no parameters are informed', :vcr do
     it 'find asteroid info from today' do
-      VCR.use_cassette('nasa/neows_today') { get '/asteroids' }
+      get '/asteroids'
 
-      neows_date = response.parsed_body['near_earth_objects']['2021-02-07']
+      neows_date = response.parsed_body['near_earth_objects']['2021-02-14']
       expect(neows_date).to be_present
       expect(neows_date.class).to eq(Array)
     end
   end
 
-  context 'when parameters are informed' do
+  context 'when parameters are informed', :vcr do
     let(:params) do
       {
         start_date: '2021-01-05',
@@ -20,9 +20,7 @@ RSpec.describe "Asteroids", type: :request do
     end
 
     it 'find asteroid info from date range' do
-      VCR.use_cassette('nasa/neows_with_range') do
-        get '/asteroids', params: params
-      end
+      get '/asteroids', params: params
 
       range1 = response.parsed_body['near_earth_objects'][params[:start_date]]
       range2 = response.parsed_body['near_earth_objects'][params[:end_date]]
