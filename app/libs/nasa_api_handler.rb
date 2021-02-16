@@ -3,13 +3,12 @@ class NasaApiHandler
   NASA_API_KEY = ENV.fetch('NASA_API_KEY').freeze
   NEOWS_URL = "#{BASE_URL}/neo/rest/v1/feed".freeze
 
-  def initialize(http_client)
+  def initialize(http_client:)
     @http_client = http_client
   end
 
   def catch_neows(start_date:, end_date:)
-    http_client_class = @http_client.fetch(:http_client)
-    http_client_class.get_neows(
+    http_client.get_neows(
       uri: NEOWS_URL,
       api_key: NASA_API_KEY,
       start_date: start_date,
